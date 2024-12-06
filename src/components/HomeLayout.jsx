@@ -2,8 +2,12 @@ import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Header from './Header';
+import Equipments from './Equipments';
+import { useLoaderData } from 'react-router-dom';
+import EquipmentCart from './EquipmentCart';
 
 const HomeLayout = () => {
+    const equipmentss = useLoaderData();
     return (
 
         <div className='font-poppins'>
@@ -15,12 +19,14 @@ const HomeLayout = () => {
             <Header className='w-11/12 mx-auto'>
             </Header>
             </header>
-            {/* <main>
-                <CardSection></CardSection>
+            <main>
+                {/* <CardSection></CardSection>
                 <BlogSection></BlogSection>
-                <Review></Review>
+                <Review></Review> */}
 
-            </main> */}
+                <EquipmentCart></EquipmentCart>
+
+            </main>
             <footer>
                 <Footer></Footer>
             </footer>

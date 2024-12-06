@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import Swal from 'sweetalert2'
 
 const AddEquipments = () => {
     const handleAddEquipment = (event) => {
@@ -12,19 +13,39 @@ const AddEquipments = () => {
         const description = form.description.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const customization= form.customization.value;
-        
+        const customization = form.customization.value;
+
         const processingTime = form.processingTime.value;
         const stockStatus = form.stockStatus.value;
-        const newEquipment = {name, categoryname, image, description, price, rating, customization, processingTime, stockStatus}
+        const newEquipment = { name, categoryname, image, description, price, rating, customization, processingTime, stockStatus }
 
 
-        console.log(name);
-        console.log(newEquipment);
-    
+        //console.log(name);
+        // console.log(newEquipment);
+
+        // send data to 
+        fetch('http://localhost:5000/addEquipments', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newEquipment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Equipment Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+
+                }
+            })
+
         // Simulating database submission
-        alert("Form submitted successfully!");
-      };
+        
+    };
     return (
         <div>
             <Navbar></Navbar>
