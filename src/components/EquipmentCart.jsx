@@ -13,7 +13,7 @@ const EquipmentCart = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-5">
-      <h2 className="text-center text-3xl font-semibold my-4">Our Equipment</h2>
+      <h2 className="text-center text-3xl font-semibold my-4">Product Section</h2>
 
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {equipments.map((equipment) => (

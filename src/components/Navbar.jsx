@@ -26,6 +26,12 @@ const Navbar = () => {
                         Home
                     </Link>
                     <Link
+                        to="/allSportsEquipment"
+                        className={`hover:text-yellow-300 transition ${isActive('/aboutUs') ? 'font-bold text-yellow-500' : ''}`}
+                    >
+                        All Sports Equipment
+                    </Link>
+                    <Link
                         to="/aboutUs"
                         className={`hover:text-yellow-300 transition ${isActive('/aboutUs') ? 'font-bold text-yellow-500' : ''}`}
                     >
@@ -92,7 +98,12 @@ const Navbar = () => {
                 </div> */}
 
                 <div className="mt-4 md:mt-0 flex items-center space-x-2 bg-transparent border border-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 transition">
-
+                <Link
+                            to="/login"
+                            className={`text-black hover:text-blue-600 transition ${isActive('/auth/login') ? 'font-bold text-yellow-500' : ''}`}
+                        >
+                            Login
+                        </Link>
                 </div>
             </div>
         </nav>

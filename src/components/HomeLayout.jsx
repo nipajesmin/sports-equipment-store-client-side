@@ -5,9 +5,10 @@ import Header from './Header';
 import Equipments from './Equipments';
 import { useLoaderData } from 'react-router-dom';
 import EquipmentCart from './EquipmentCart';
+import SportsCategories from './sportsCategories';
 
 const HomeLayout = () => {
-    const equipmentss = useLoaderData();
+   // const equipmentss = useLoaderData();
     return (
 
         <div className='font-poppins'>
@@ -25,6 +26,7 @@ const HomeLayout = () => {
                 <Review></Review> */}
 
                 <EquipmentCart></EquipmentCart>
+                <SportsCategories></SportsCategories>
 
             </main>
             <footer>
