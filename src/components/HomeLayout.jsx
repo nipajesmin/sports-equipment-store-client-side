@@ -6,6 +6,7 @@ import Equipments from './Equipments';
 import { useLoaderData } from 'react-router-dom';
 import EquipmentCart from './EquipmentCart';
 import SportsCategories from './sportsCategories';
+import Reviews from './Reviews';
 
 const HomeLayout = () => {
    // const equipmentss = useLoaderData();
@@ -27,6 +28,7 @@ const HomeLayout = () => {
 
                 <EquipmentCart></EquipmentCart>
                 <SportsCategories></SportsCategories>
+                <Reviews></Reviews>
 
             </main>
             <footer>

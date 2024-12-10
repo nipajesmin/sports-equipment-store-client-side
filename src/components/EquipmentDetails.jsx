@@ -62,6 +62,7 @@ const EquipmentDetails = () => {
           <p className="text-lg text-gray-600 mt-4">
             <strong>Description:</strong> {equipment.description}
           </p>
+          
         </div>
       </div>
 
