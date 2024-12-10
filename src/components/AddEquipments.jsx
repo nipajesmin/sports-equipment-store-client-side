@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { AuthContext } from '../provider/AuthProvider';
 
 const AddEquipments = () => {
-    const { user } = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
     const handleAddEquipment = (event) => {
         event.preventDefault();
         const form = event.target
@@ -34,19 +34,19 @@ const AddEquipments = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Equipment Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
-                      })
-
+                    })
+                    form.reset();
                 }
             })
 
         // Simulating database submission
-        
+
     };
     return (
         <div>

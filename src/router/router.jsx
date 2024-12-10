@@ -11,6 +11,7 @@ import ProfileUsers from '../components/ProfileUsers';
 import AddEquipments from '../components/AddEquipments';
 import MyEquipments from '../components/MyEquipments';
 import PrivateRoute from './PrivateRoute';
+import AllSportsEquip from '../components/AllSportsEquip';
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
   {
     path: "/equipment/:id",
     element: <PrivateRoute><EquipmentDetails></EquipmentDetails></PrivateRoute>,
+    
+      
+  },
+  {
+    path: "/allSportsEquipment",
+    element: <AllSportsEquip></AllSportsEquip>,
     
       
   },
