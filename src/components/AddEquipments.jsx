@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddEquipments = () => {
+    const { user } = useContext(AuthContext); 
     const handleAddEquipment = (event) => {
         event.preventDefault();
         const form = event.target
@@ -168,26 +170,28 @@ const AddEquipments = () => {
                     </div>
 
                     {/* User Email (Read-Only) */}
-                    {/* <div className="form-control">
+                    <div className="form-control">
                         <label className="label font-semibold">User Email</label>
                         <input
                             type="email"
                             name="userEmail"
-
                             className="input input-bordered bg-gray-100"
+                            defaultValue={user?.email || ''}
+                            readOnly
                         />
-                    </div> */}
+                    </div>
 
                     {/* User Name (Read-Only) */}
-                    {/* <div className="form-control">
+                    <div className="form-control">
                         <label className="label font-semibold">User Name</label>
                         <input
                             type="text"
                             name="userName"
-
                             className="input input-bordered bg-gray-100"
+                            defaultValue={user?.displayName || ''}
+                            readOnly
                         />
-                    </div> */}
+                    </div>
 
                     {/* Submit Button */}
                     <div className="form-control mt-6">

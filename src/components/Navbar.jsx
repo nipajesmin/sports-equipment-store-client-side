@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import userIcon from '../../public/user.png';
 
-// Function to check if the current route is active
 const isActive = (path) => location.pathname === path;
+
 const Navbar = () => {
+    const { user, signOutUser } = useContext(AuthContext);
+
     return (
         <nav className="bg-slate-300 text-white shadow-md">
             <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row md:justify-between items-center">
-                {/* Left Section */}
+                {/* Logo Section */}
                 <div className="mb-4 md:mb-0">
                     <Link
                         to="/"
@@ -17,7 +21,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Center Section */}
+                {/* Navigation Links */}
                 <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 items-center text-slate-950">
                     <Link
                         to="/"
@@ -25,9 +29,11 @@ const Navbar = () => {
                     >
                         Home
                     </Link>
+
+
                     <Link
                         to="/allSportsEquipment"
-                        className={`hover:text-yellow-300 transition ${isActive('/aboutUs') ? 'font-bold text-yellow-500' : ''}`}
+                        className={`hover:text-yellow-300 transition ${isActive('/allSportsEquipment') ? 'font-bold text-yellow-500' : ''}`}
                     >
                         All Sports Equipment
                     </Link>
@@ -37,78 +43,62 @@ const Navbar = () => {
                     >
                         About Us
                     </Link>
-                    {/* {!user && (
-                        <Link
-                            to="/auth/register"
-                            className={`hover:text-yellow-300 transition ${isActive('/auth/register') ? 'font-bold text-yellow-500' : ''}`}
-                        >
-                            Register
-                        </Link>
-                    )}
                     {user && (
                         <>
                             <Link
-                                to="/myProfile"
+                                to="/myEquipments"
                                 className={`hover:text-yellow-300 transition ${isActive('/myProfile') ? 'font-bold text-yellow-500' : ''}`}
                             >
-                                My Profile
+                                My Equipment List
                             </Link>
                             <Link
-                                to="/consultationForm"
-                                className={`hover:text-yellow-300 transition ${isActive('/consultationForm') ? 'font-bold text-yellow-500' : ''}`}
+                                to="/addEquipments"
+                                className={`hover:text-yellow-300 transition ${isActive('/addEquipments') ? 'font-bold text-yellow-500' : ''}`}
                             >
-                                Consultation
+                                Add Equipment
                             </Link>
                         </>
-                    )} */}
+                    )}
                 </div>
 
-                {/* Right Section */}
-                {/* <div className="mt-4 md:mt-0 flex items-center space-x-2 bg-transparent border border-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 transition">
-                    {user && user?.email ? (
-                        <img
-                            src={user?.photoURL}
-                            alt="User"
-                            className="h-6 w-6 rounded-full object-cover"
-                            title={user?.displayName || 'User'} // Tooltip with user's name
-                        />
+                {/* User Section */}
+                <div className="mt-4 md:mt-0 flex items-center space-x-4">
+                    {user && user.email ? (
+                        <div className="flex items-center space-x-2">
+                            <img
+                                src={user?.photoURL}
+                                alt="User"
+                                className="h-6 w-6 rounded-full object-cover"
+                                title={user?.displayName || 'User'} // Tooltip with user's name
+                            />
+                            <button
+                                onClick={signOutUser}
+                                className="text-black bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition"
+                            >
+                                Log Out
+                            </button>
+                        </div>
                     ) : (
-                        <img
-                            src={userIcon}
-                            alt="User Icon"
-                            className="h-6 w-6 rounded-full object-cover"
-                            title="Guest User" // Default tooltip for guest users
-                        />
+                        <div className="flex space-x-4">
+                            <Link
+                                to="/login"
+                                className={`text-black hover:text-blue-600 transition ${isActive('/login') ? 'font-bold text-yellow-500' : ''}`}
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/register"
+                                className={`text-black hover:text-blue-600 transition ${isActive('/register') ? 'font-bold text-yellow-500' : ''}`}
+                            >
+                                Register
+                            </Link>
+                        </div>
                     )}
-                    {user ? (
-                        <a
-                            onClick={signOutUser}
-                            className="text-black hover:text-blue-600 transition cursor-pointer"
-                        >
-                            Sign Out
-                        </a>
-                    ) : (
-                        <Link
-                            to="/auth/login"
-                            className={`text-black hover:text-blue-600 transition ${isActive('/auth/login') ? 'font-bold text-yellow-500' : ''}`}
-                        >
-                            Login
-                        </Link>
-                    )}
-                </div> */}
-
-                <div className="mt-4 md:mt-0 flex items-center space-x-2 bg-transparent border border-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 transition">
-                <Link
-                            to="/login"
-                            className={`text-black hover:text-blue-600 transition ${isActive('/auth/login') ? 'font-bold text-yellow-500' : ''}`}
-                        >
-                            Login
-                        </Link>
                 </div>
             </div>
         </nav>
-
     );
 };
 
 export default Navbar;
+

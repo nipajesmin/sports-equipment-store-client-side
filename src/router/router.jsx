@@ -7,6 +7,11 @@ import EquipmentCart from '../components/EquipmentCart';
 import AuthLayout from '../components/AuthLayout';
 import Login from './Login';
 import Register from './Register';
+import ProfileUsers from '../components/ProfileUsers';
+import AddEquipments from '../components/AddEquipments';
+import MyEquipments from '../components/MyEquipments';
+import PrivateRoute from './PrivateRoute';
+
 
 const router = createBrowserRouter([
   {
@@ -21,7 +26,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/equipment/:id",
-    element: <EquipmentDetails></EquipmentDetails>,
+    element: <PrivateRoute><EquipmentDetails></EquipmentDetails></PrivateRoute>,
+    
+      
+  },
+  {
+    path: "/addEquipments",
+    element: <AddEquipments></AddEquipments>,
+    
+      
+  },
+  {
+    path: "/myEquipments",
+    element: <MyEquipments></MyEquipments>,
     
       
   },
@@ -38,7 +55,14 @@ const router = createBrowserRouter([
     
       
   },
+  {
+    path: "/profileUsers",
+    element: <ProfileUsers></ProfileUsers> ,
+    loader: () => fetch('http://localhost:5000/users')
+      
+  },
 
+ 
   // {
   //   path: "/auth",
   //   element: <AuthLayout></AuthLayout>,
