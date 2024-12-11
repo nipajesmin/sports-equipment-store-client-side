@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip as ReactTooltip } from "react-tooltip"; // Correct import for React Tooltip
 
 const EquipmentCart = () => {
   const [equipments, setEquipments] = useState([]);
@@ -7,7 +8,7 @@ const EquipmentCart = () => {
   useEffect(() => {
     fetch('http://localhost:5000/addEquipments')
       .then((res) => res.json())
-      .then((data) => setEquipments(data.slice(0, 6)))
+      .then((data) => setEquipments(data.slice(0, 6)))  // Limiting to 6 items
       .catch((err) => console.error("Error fetching equipment data:", err));
   }, []);
 
@@ -26,7 +27,11 @@ const EquipmentCart = () => {
                 src={equipment.image}
                 alt={equipment.name}
                 className="max-h-full max-w-full object-contain"
+                data-tooltip-id={`tooltip-${equipment._id}`} // Unique tooltip ID for each item
+                data-tooltip-content={`Category: ${equipment.categoryname}`} // The content of the tooltip
               />
+              {/* This is where we define the Tooltip */}
+              <ReactTooltip id={`tooltip-${equipment._id}`} place="top" effect="solid" />
             </div>
             <div className="p-4 text-left">
               <h3 className="text-lg font-bold text-gray-800">{equipment.name}</h3>

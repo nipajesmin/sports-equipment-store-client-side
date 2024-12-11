@@ -13,6 +13,7 @@ import MyEquipments from '../components/MyEquipments';
 import PrivateRoute from './PrivateRoute';
 import AllSportsEquip from '../components/AllSportsEquip';
 import UpdateEquipment from '../components/UpdateEquipment';
+import Error from '../components/Error';
 
 
 const router = createBrowserRouter([
