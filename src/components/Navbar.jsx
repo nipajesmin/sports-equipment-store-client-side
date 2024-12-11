@@ -37,12 +37,7 @@ const Navbar = () => {
                     >
                         All Sports Equipment
                     </Link>
-                    <Link
-                        to="/aboutUs"
-                        className={`hover:text-yellow-300 transition ${isActive('/aboutUs') ? 'font-bold text-yellow-500' : ''}`}
-                    >
-                        About Us
-                    </Link>
+                    
                     {user && (
                         <>
                             <Link

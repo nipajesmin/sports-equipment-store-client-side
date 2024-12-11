@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const AllSportsEquip = () => {
     const [equipments, setEquipments] = useState([]);
+    const [sortOrder, setSortOrder] = useState(null); // 'asc' or 'desc'
 
     useEffect(() => {
         fetch('http://localhost:5000/addEquipments')
@@ -13,12 +14,41 @@ const AllSportsEquip = () => {
             .catch((err) => console.error("Error fetching equipment data:", err));
     }, []);
 
+    const sortEquipments = (order) => {
+        const sortedEquipments = [...equipments].sort((a, b) => {
+            return order === 'asc' ? a.price - b.price : b.price - a.price;
+        });
+        setEquipments(sortedEquipments);
+        setSortOrder(order);
+    };
+
     return (
         <div>
             <Navbar />
             <div className="w-11/12 mx-auto mt-5 mb-5">
                 <h2 className="text-center text-3xl font-semibold my-4">All Sports Equipments</h2>
 
+                {/* Sort Buttons */}
+                <div className="text-center mb-4">
+                    <button
+                        onClick={() => sortEquipments('asc')}
+                        className={`mr-2 px-4 py-2 rounded ${
+                            sortOrder === 'asc' ? 'bg-gray-500 text-white' : 'bg-gray-200'
+                        } hover:bg-gray-500 transition`}
+                    >
+                        Sort by Price (Ascending)
+                    </button>
+                    <button
+                        onClick={() => sortEquipments('desc')}
+                        className={`px-4 py-2 rounded ${
+                            sortOrder === 'desc' ? 'bg-gray-500 text-white' : 'bg-gray-200'
+                        } hover:bg-gray-500 transition`}
+                    >
+                        Sort by Price (Descending)
+                    </button>
+                </div>
+
+                {/* Equipment Table */}
                 <div className="overflow-x-auto">
                     <table className="table-auto w-full border-collapse border border-gray-200">
                         <thead className="bg-gray-100">
@@ -46,7 +76,7 @@ const AllSportsEquip = () => {
                                     <td className="border border-gray-200 px-4 py-2">
                                         <Link
                                             to={`/equipment/${equipment._id}`}
-                                            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                                            className="bg-red-200 text-slate-900 px-4 py-2 rounded hover:bg-gray-500 transition"
                                         >
                                             View Details
                                         </Link>
@@ -63,3 +93,4 @@ const AllSportsEquip = () => {
 };
 
 export default AllSportsEquip;
+
