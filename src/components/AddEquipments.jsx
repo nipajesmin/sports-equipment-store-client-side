@@ -19,7 +19,10 @@ const AddEquipments = () => {
 
         const processingTime = form.processingTime.value;
         const stockStatus = form.stockStatus.value;
-        const newEquipment = { name, categoryname, image, description, price, rating, customization, processingTime, stockStatus }
+        const userEmail = form.userEmail.value;
+        const userName = form.userName.value;
+
+        const newEquipment = { name, categoryname, image, description, price, rating, customization, processingTime, stockStatus,userEmail,userName }
 
 
         //console.log(name);
