@@ -18,6 +18,7 @@ const MyEquipments = () => {
     }, [user?.email]);
 
     const handleDelete = (id) => {
+        //  console.log(id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -34,15 +35,22 @@ const MyEquipments = () => {
                     .then((data) => {
                         if (data.deletedCount > 0) {
                             Swal.fire('Deleted!', 'Your equipment has been deleted.', 'success');
-                            const remaining = myEquipments.filter((equip) => equip._id !== id);
-                            setMyEquipments(remaining);
+                            // const remaining = equipmentCollection.filter((equip) => equip._id !== id);
+                            // setMyEquipments(remaining);
+
+                            // Update state immediately after deletion
+                            setMyEquipments((prevEquipments) =>
+                                prevEquipments.filter((equipment) => equipment._id !== id)
+                            );
                         }
                     });
+                //   console.log('delete confirm')
             }
         });
     };
 
     const handleUpdate = (id) => {
+
         navigate(`/updateEquipment/${id}`);
     };
 
@@ -59,6 +67,7 @@ const MyEquipments = () => {
                                 className="w-full h-48 object-cover mb-4"
                             />
                             <h3 className="text-xl font-semibold">{equipment.name}</h3>
+                            {/* <p className="text-sm text-gray-600">{equipment._id}</p> */}
                             <p className="text-sm text-gray-600">{equipment.description}</p>
                             <p className="text-sm text-gray-600">Price: ${equipment.price}</p>
                             <p className="text-sm text-gray-600">Rating: {equipment.rating}</p>
