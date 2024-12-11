@@ -7,7 +7,7 @@ const EquipmentCart = () => {
   useEffect(() => {
     fetch('http://localhost:5000/addEquipments')
       .then((res) => res.json())
-      .then((data) => setEquipments(data))
+      .then((data) => setEquipments(data.slice(0, 6)))
       .catch((err) => console.error("Error fetching equipment data:", err));
   }, []);
 

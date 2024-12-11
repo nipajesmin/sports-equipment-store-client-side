@@ -11,17 +11,21 @@ const UpdateEquipment = () => {
     const navigate = useNavigate();
     const [equipment, setEquipment] = useState({});
 
-    // Fetch existing equipment data
     useEffect(() => {
-        fetch(`http://localhost:5000/myEquipments/${id}`)
+        fetch(`http://localhost:5000/myEquipment/${id}`)
             .then((res) => res.json())
-            .then((data) => setEquipment(data))
-            .catch((error) => console.error(error));
+            .then((data) => {
+                console.log('Fetched equipment data:', data);
+                setEquipment(data);
+            })
+            .catch((error) => console.error('Error fetching equipment:', error));
     }, [id]);
+    
 
     const handleUpdateEquipment = (event) => {
         event.preventDefault();
         const form = event.target;
+    
         const updatedEquipment = {
             name: form.name.value,
             categoryname: form.categoryName.value,
@@ -35,25 +39,41 @@ const UpdateEquipment = () => {
             userEmail: form.userEmail.value,
             userName: form.userName.value,
         };
+        console.log(updatedEquipment);
 
+        
         // Send updated data to the server
-        fetch(`http://localhost:5000/myEquipments/${id}`, {
+        fetch(`http://localhost:5000/myEquipment/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedEquipment),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Equipment updated successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool',
-                    });
-                    navigate('/myEquipments');
-                }
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.modifiedCount > 0) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Equipment updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool',
+                });
+                navigate('/myEquipments');
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to update equipment',
+                    icon: 'error',
+                });
+            }
+        })
+        .catch((error) => {
+            console.error('Error updating equipment:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'An error occurred while updating the equipment.',
+                icon: 'error',
             });
+        });
     };
 
     return (
