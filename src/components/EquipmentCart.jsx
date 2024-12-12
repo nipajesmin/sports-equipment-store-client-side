@@ -6,7 +6,7 @@ const EquipmentCart = () => {
   const [equipments, setEquipments] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/addEquipments')
+    fetch('https://sports-equipment-store-server-side.vercel.app/addEquipments')
       .then((res) => res.json())
       .then((data) => setEquipments(data.slice(0, 6)))  // Limiting to 6 items
       .catch((err) => console.error("Error fetching equipment data:", err));

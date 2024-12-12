@@ -11,11 +11,12 @@ const UpdateEquipment = () => {
     const navigate = useNavigate();
     const [equipment, setEquipment] = useState({});
 
+   // console.log(equipment);
     useEffect(() => {
-        fetch(`http://localhost:5000/myEquipment/${id}`)
+        fetch(`https://sports-equipment-store-server-side.vercel.app/myEquipment/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log('Fetched equipment data:', data);
+               // console.log('Fetched equipment data:', data);
                 setEquipment(data);
             })
             .catch((error) => console.error('Error fetching equipment:', error));
@@ -28,7 +29,7 @@ const UpdateEquipment = () => {
     
         const updatedEquipment = {
             name: form.name.value,
-            categoryname: form.categoryName.value,
+            categoryname: form.categoryname.value,
             image: form.image.value,
             description: form.description.value,
             price: form.price.value,
@@ -39,11 +40,11 @@ const UpdateEquipment = () => {
             userEmail: form.userEmail.value,
             userName: form.userName.value,
         };
-        console.log(updatedEquipment);
+      //  console.log(updatedEquipment);
 
         
         // Send updated data to the server
-        fetch(`http://localhost:5000/myEquipment/${id}`, {
+        fetch(`https://sports-equipment-store-server-side.vercel.app/myEquipment/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedEquipment),
@@ -111,7 +112,7 @@ const UpdateEquipment = () => {
                         <label className="label font-semibold">Category Name</label>
                         <input
                             type="text"
-                            name="categoryName"
+                            name="categoryname"
                             className="input input-bordered"
                             defaultValue={equipment.categoryname || ''}
                             required

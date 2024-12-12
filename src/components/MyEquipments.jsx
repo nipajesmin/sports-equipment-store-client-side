@@ -12,7 +12,7 @@ const MyEquipments = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myEquipments/${user.email}`)
+            fetch(`sports-equipment-store-server-side.vercel.app/myEquipments/${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setMyEquipments(data))
                 .catch((error) => console.error('Error fetching equipment:', error));
@@ -30,7 +30,7 @@ const MyEquipments = () => {
             cancelButtonText: 'No, cancel!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myEquipments/${id}`, {
+                fetch(`https://sports-equipment-store-server-side.vercel.app/myEquipments/${id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())

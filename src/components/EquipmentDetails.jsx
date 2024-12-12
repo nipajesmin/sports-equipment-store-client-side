@@ -7,7 +7,7 @@ const EquipmentDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addEquipments`)
+    fetch(`sports-equipment-store-server-side.vercel.app/addEquipments`)
       .then((res) => res.json())
       .then((data) => {
         const foundEquipment = data.find((item) => item._id === id);

@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   {
     path: "/profileUsers",
     element: <ProfileUsers></ProfileUsers> ,
-    loader: () => fetch('http://localhost:5000/users')
+    loader: () => fetch('https://sports-equipment-store-server-side.vercel.app/users')
       
   },
 

@@ -49,7 +49,7 @@ const Register = () => {
                 const newUser = { name, email, url };
 
                 // Save new user info to the database
-                fetch('http://localhost:5000/users', {
+                fetch('sports-equipment-store-server-side.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

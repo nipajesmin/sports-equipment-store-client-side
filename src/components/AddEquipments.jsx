@@ -10,7 +10,7 @@ const AddEquipments = () => {
         event.preventDefault();
         const form = event.target
         const name = form.name.value;
-        const categoryname = form.categoryName.value;
+        const categoryname = form.categoryname.value;
         const image = form.image.value;
         const description = form.description.value;
         const price = form.price.value;
@@ -22,21 +22,21 @@ const AddEquipments = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
 
-        const newEquipment = { name, categoryname, image, description, price, rating, customization, processingTime, stockStatus,userEmail,userName }
+        const newEquipment = { name, categoryname, image, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
 
 
         //console.log(name);
         // console.log(newEquipment);
 
         // send data to 
-        fetch('http://localhost:5000/addEquipments', {
+        fetch('https://sports-equipment-store-server-side.vercel.app/addEquipments', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newEquipment)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -86,7 +86,7 @@ const AddEquipments = () => {
                         <label className="label font-semibold">Category Name</label>
                         <input
                             type="text"
-                            name="categoryName"
+                            name="categoryname"
 
                             className="input input-bordered"
                             placeholder="Enter category name"

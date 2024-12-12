@@ -12,10 +12,10 @@ const Reviews = () => {
             <div className="container mx-auto">
                 {/* Header */}
                 <h2 className="text-4xl font-extrabold text-center text-black mb-10">
-                    What Our Clients Say
+                    What Our Customers Say
                 </h2>
                 <p className="text-center text-gray-600 text-lg mb-10">
-                    Here’s how we’ve helped individuals achieve their career goals.
+                    Here’s what our customers have to say about their experience with our sports equipment.
                 </p>
 
                 {/* Reviews Grid */}
@@ -24,12 +24,12 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic1}
-                            alt="Emily Johnson"
+                            alt="Sharmin"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Sharmin</h3>
                         <p className="text-gray-600 mt-4">
-                            Career Counseling helped me identify the right career path and gave me the confidence to pursue it. Truly life-changing!
+                            The quality of the sports gear I bought was exceptional. The bat with the extra grip made a huge difference in my performance. Highly recommend!
                         </p>
                     </div>
 
@@ -37,12 +37,12 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic2}
-                            alt="Michael Brown"
+                            alt="Ahmed"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Ahmed</h3>
                         <p className="text-gray-600 mt-4">
-                            The team was incredibly supportive and provided personalized advice that landed me my dream job!
+                            I bought a football kit and was blown away by the quality. The delivery was fast, and the customer service was excellent!
                         </p>
                     </div>
 
@@ -50,12 +50,12 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic3}
-                            alt="Sophia Williams"
+                            alt="Sanju"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Sanju</h3>
                         <p className="text-gray-600 mt-4">
-                            I felt heard and understood during every session. Their approach is so practical and effective.
+                            The variety of sports equipment available is fantastic. The tennis racquet I purchased feels great, and the price was unbeatable.
                         </p>
                     </div>
 
@@ -63,12 +63,12 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic4}
-                            alt="David Miller"
+                            alt="Nayem"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Nayem</h3>
                         <p className="text-gray-600 mt-4">
-                            Thanks to their guidance, I revamped my resume and aced my interviews. Highly recommended!
+                            I’m impressed with the basketball gear I ordered. Great fit, durable, and delivered on time. Definitely my go-to place for sports equipment.
                         </p>
                     </div>
 
@@ -76,12 +76,12 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic5}
-                            alt="Olivia Davis"
+                            alt="Tasfia"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Tasfia</h3>
                         <p className="text-gray-600 mt-4">
-                            Their workshops and one-on-one sessions are top-notch. I feel so much more confident now.
+                            The racquet I bought was perfectly balanced and enhanced my gameplay. The customer support was also top-notch. Totally satisfied with my purchase!
                         </p>
                     </div>
 
@@ -89,19 +89,18 @@ const Reviews = () => {
                     <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300">
                         <img
                             src={pic6}
-                            alt="James Wilson"
+                            alt="Eshika"
                             className="h-20 w-20 rounded-full mb-4 border-4 border-blue-100"
                         />
                         <h3 className="text-xl font-semibold text-gray-800">Eshika</h3>
                         <p className="text-gray-600 mt-4">
-                            They offer such a professional service. The insights I gained from their counseling sessions were invaluable.
+                            I’ve been using the football boots I ordered for a month now, and they are amazing! Comfortable, durable, and worth every penny.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
     );
-
 };
 
 export default Reviews;
