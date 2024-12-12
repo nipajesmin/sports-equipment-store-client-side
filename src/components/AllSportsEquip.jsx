@@ -8,7 +8,7 @@ const AllSportsEquip = () => {
     const [sortOrder, setSortOrder] = useState(null); // 'asc' or 'desc'
 
     useEffect(() => {
-        fetch('https://sports-equipment-store-server-side.vercel.app//addEquipments')
+        fetch('https://sports-equipment-store-server-side.vercel.app/addEquipments')
             .then((res) => res.json())
             .then((data) => setEquipments(data))
             .catch((err) => console.error("Error fetching equipment data:", err));

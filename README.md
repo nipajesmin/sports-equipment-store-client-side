@@ -4,6 +4,9 @@ Welcome to EquiSports, an online store where customers can browse, purchase, and
 
 # Live Website Link
 
+https://sports-equipment-store-c8fd5.web.app/
+
+
 # Features:
 
 ## Navbar:

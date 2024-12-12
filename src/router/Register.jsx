@@ -39,7 +39,7 @@ const Register = () => {
 
                 updateUserProfile({ displayName: name, photoURL: url })
                     .then(() => {
-                        toast.success('Profile updated successfully!', { position: 'top-center' });
+                  //      toast.success('Profile updated successfully!', { position: 'top-center' });
                     })
                     .catch((error) => {
                         toast.error(`Failed to update profile: ${error.message}`, { position: 'top-center' });
@@ -49,7 +49,7 @@ const Register = () => {
                 const newUser = { name, email, url };
 
                 // Save new user info to the database
-                fetch('sports-equipment-store-server-side.vercel.app/users', {
+                fetch('https://sports-equipment-store-server-side.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

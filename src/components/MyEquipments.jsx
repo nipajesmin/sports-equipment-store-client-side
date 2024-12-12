@@ -12,7 +12,7 @@ const MyEquipments = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`sports-equipment-store-server-side.vercel.app/myEquipments/${user.email}`)
+            fetch(`https://sports-equipment-store-server-side.vercel.app/myEquipments/${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setMyEquipments(data))
                 .catch((error) => console.error('Error fetching equipment:', error));
