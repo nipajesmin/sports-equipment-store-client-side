@@ -42,18 +42,17 @@ const HomeLayout = () => {
 
         <div className={`font-poppins ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
 
-            <navbar>
-                <Navbar></Navbar>
-            </navbar>
-            <header>
-            <button
+
+            <Navbar></Navbar>
+
+            <header className="flex flex-col items-center justify-center mt-5">
+                <button
                     onClick={toggleTheme}
-                    className="p-2 bg-gray-300 dark:bg-gray-700 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 transition mt-5"
+                    className="p-2 bg-gray-300 dark:bg-gray-700 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 transition"
                 >
                     {isDarkTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 </button>
-                <Header className='w-11/12 mx-auto'>
-                </Header>
+                <Header className="w-11/12 mx-auto" />
             </header>
             <main>
                 {/* <CardSection></CardSection>

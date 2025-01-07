@@ -8,7 +8,7 @@ import pic6 from '../../public/pic6.png'
 
 const Reviews = () => {
     return (
-        <section className="w-11/12 mx-auto mt-5 py-16">
+        <section className="w-11/12 mx-auto mt-10 py-16">
             <div className="container mx-auto">
                 {/* Header */}
                 <h2 className="text-4xl font-extrabold text-center text-black mb-10">

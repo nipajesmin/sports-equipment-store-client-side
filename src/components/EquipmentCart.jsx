@@ -8,15 +8,18 @@ const EquipmentCart = () => {
   useEffect(() => {
     fetch('https://sports-equipment-store-server-side.vercel.app/addEquipments')
       .then((res) => res.json())
-      .then((data) => setEquipments(data.slice(0, 6)))  // Limiting to 6 items
+      .then((data) => setEquipments(data.slice(0, 8)))  // Limiting to 8 items
       .catch((err) => console.error("Error fetching equipment data:", err));
   }, []);
 
   return (
-    <div className="w-11/12 mx-auto mt-5">
+    <div className="w-11/12 mx-auto mt-10">
       <h2 className="text-center text-3xl font-semibold my-4">Product Section</h2>
+      <p className="text-center text-gray-600 text-lg mb-10 pr-10 pl-10">
+        Explore our wide range of high-quality sports equipment designed to enhance your performance and elevate your game. Find the perfect gear for every sport and every level.
+      </p>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {equipments.map((equipment) => (
           <div
             key={equipment._id}
@@ -54,6 +57,7 @@ const EquipmentCart = () => {
 };
 
 export default EquipmentCart;
+
 
 
 

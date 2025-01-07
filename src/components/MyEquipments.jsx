@@ -20,7 +20,6 @@ const MyEquipments = () => {
     }, [user?.email]);
 
     const handleDelete = (id) => {
-        //  console.log(id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -37,16 +36,11 @@ const MyEquipments = () => {
                     .then((data) => {
                         if (data.deletedCount > 0) {
                             Swal.fire('Deleted!', 'Your equipment has been deleted.', 'success');
-                            // const remaining = equipmentCollection.filter((equip) => equip._id !== id);
-                            // setMyEquipments(remaining);
-
-                            // Update state immediately after deletion
                             setMyEquipments((prevEquipments) =>
                                 prevEquipments.filter((equipment) => equipment._id !== id)
                             );
                         }
                     });
-                //   console.log('delete confirm')
             }
         });
     };
@@ -54,58 +48,71 @@ const MyEquipments = () => {
     const handleUpdate = (id) => {
         navigate(`/updateEquipment/${id}`);
     };
+
     return (
         <div>
-            <Navbar></Navbar>
-            <div className="w-full max-w-4xl mx-auto mt-8">
+            <Navbar />
+            <div className="w-full max-w-6xl mx-auto mt-8">
                 <h2 className="text-2xl font-bold text-center mb-6">My Added Equipments</h2>
                 {myEquipments.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {myEquipments.map((equipment) => (
-                            <div key={equipment._id} className="card shadow-lg p-4">
-                                <img
-                                    src={equipment.image}
-                                    alt={equipment.name}
-                                    className="w-full h-48 object-cover mb-4"
-                                />
-                                <h3 className="text-xl font-semibold">{equipment.name}</h3>
-                                {/* <p className="text-sm text-gray-600">{equipment._id}</p> */}
-                                <p className="text-sm text-gray-600">{equipment.description}</p>
-                                <p className="text-sm text-gray-600">Price: ${equipment.price}</p>
-                                <p className="text-sm text-gray-600">Rating: {equipment.rating}</p>
-                                <div className="flex justify-between mt-4">
-                                    <button
-                                        onClick={() => handleUpdate(equipment._id)}
-                                        className="btn btn-primary"
-                                    >
-                                        Update
-                                    </button>
-                                    {/* <Link to={'/updateEquipment'}
-                                    className="btn btn-primary"
-                                    >
-                                        Update
-                                    </Link> */}
-
-                                    <button
-                                        onClick={() => handleDelete(equipment._id)}
-                                        className="btn btn-error"
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="overflow-x-auto">
+                        <table className="table-auto w-full border-collapse border border-gray-200 mb-4">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Image</th>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Name</th>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Description</th>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Price</th>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Rating</th>
+                                    <th className="border border-gray-200 px-4 py-2 text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {myEquipments.map((equipment) => (
+                                    <tr key={equipment._id} className="hover:bg-gray-50">
+                                        <td className="border border-gray-200 px-4 py-2">
+                                            <img
+                                                src={equipment.image}
+                                                alt={equipment.name}
+                                                className="h-16 w-16 object-contain mx-auto"
+                                            />
+                                        </td>
+                                        <td className="border border-gray-200 px-4 py-2">{equipment.name}</td>
+                                        <td className="border border-gray-200 px-4 py-2">{equipment.description}</td>
+                                        <td className="border border-gray-200 px-4 py-2">${equipment.price}</td>
+                                        <td className="border border-gray-200 px-4 py-2">{equipment.rating}</td>
+                                        <td className="border border-gray-200 px-4 py-2">
+                                            <div className="flex space-x-2">
+                                                <button
+                                                    onClick={() => handleUpdate(equipment._id)}
+                                                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                                                >
+                                                    Update
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(equipment._id)}
+                                                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 ) : (
                     <p className="text-center">You haven't added any equipment yet.</p>
                 )}
             </div>
-            <Footer></Footer>
+            <Footer />
         </div>
     );
 };
 
 export default MyEquipments;
+
 
 
 

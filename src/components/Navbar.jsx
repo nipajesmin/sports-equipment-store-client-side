@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-import userIcon from '../../public/user.png';
+//import userIcon from '../../public/user.png';
 
 const isActive = (path) => location.pathname === path;
 
@@ -9,8 +9,8 @@ const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
 
     return (
-        <nav className="bg-slate-300 text-white shadow-md">
-            <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row md:justify-between items-center">
+        <nav className="bg-slate-300 text-white shadow-md w-full sticky top-0 z-10 pr-5 pl-5 ">
+            <div className="w-full px-4 py-3 flex flex-col md:flex-row md:justify-between items-center">
                 {/* Logo Section */}
                 <div className="mb-4 md:mb-0">
                     <Link
@@ -36,6 +36,18 @@ const Navbar = () => {
                         className={`hover:text-yellow-300 transition ${isActive('/allSportsEquipment') ? 'font-bold text-yellow-500' : ''}`}
                     >
                         All Sports Equipment
+                    </Link>
+                    <Link
+                        to="/aboutUs"
+                        className={`hover:text-yellow-300 transition ${isActive('/aboutUs') ? 'font-bold text-yellow-500' : ''}`}
+                    >
+                        About Us
+                    </Link>
+                    <Link
+                        to="/faqS"
+                        className={`hover:text-yellow-300 transition ${isActive('/faqS') ? 'font-bold text-yellow-500' : ''}`}
+                    >
+                        FAQs
                     </Link>
                     
                     {user && (

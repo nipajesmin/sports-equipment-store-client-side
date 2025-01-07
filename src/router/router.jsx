@@ -14,6 +14,8 @@ import PrivateRoute from './PrivateRoute';
 import AllSportsEquip from '../components/AllSportsEquip';
 import UpdateEquipment from '../components/UpdateEquipment';
 import Error from '../components/Error';
+import AboutUs from '../components/AboutUs';
+import FAQs from '../components/FAQs';
 
 
 const router = createBrowserRouter([
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/equipment/:id",
-    element: <PrivateRoute><EquipmentDetails></EquipmentDetails></PrivateRoute>,
+    element: <EquipmentDetails></EquipmentDetails>,
     
       
   },
@@ -76,6 +78,17 @@ const router = createBrowserRouter([
     loader: () => fetch('https://sports-equipment-store-server-side.vercel.app/users')
       
   },
+  {
+    path: "/aboutUs",
+    element: <AboutUs></AboutUs> ,
+      
+  },
+  {
+    path: "/faqS",
+    element: <FAQs></FAQs> ,
+      
+  },
+
 
  
   // {

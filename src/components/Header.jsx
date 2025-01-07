@@ -19,7 +19,7 @@ const Header = () => {
                         Gear up for excellence! At EquiSports, we offer top-quality sports equipment and apparel to elevate your game. Whether you’re a professional athlete, a passionate amateur, or just getting started, we’ve got everything you need to play with confidence and style.
                     </p>
                     <h5 className="text-lg md:text-2xl font-semibold text-gray-700">
-                        Equip Yourself for Victory. Shop Now.
+                        Equip Yourself for Victory. 
                     </h5>
                 </div>
             </div>

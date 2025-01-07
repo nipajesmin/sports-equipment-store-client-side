@@ -48,43 +48,31 @@ const AllSportsEquip = () => {
                     </button>
                 </div>
 
-                {/* Equipment Table */}
-                <div className="overflow-x-auto">
-                    <table className="table-auto w-full border-collapse border border-gray-200">
-                        <thead className="bg-gray-100">
-                            <tr>
-                                <th className="border border-gray-200 px-4 py-2 text-left">Image</th>
-                                <th className="border border-gray-200 px-4 py-2 text-left">Name</th>
-                                <th className="border border-gray-200 px-4 py-2 text-left">Category</th>
-                                <th className="border border-gray-200 px-4 py-2 text-left">Price</th>
-                                <th className="border border-gray-200 px-4 py-2 text-left">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {equipments.map((equipment) => (
-                                <tr key={equipment._id} className="hover:bg-gray-50">
-                                    <td className="border border-gray-200 px-4 py-2">
-                                        <img
-                                            src={equipment.image}
-                                            alt={equipment.name}
-                                            className="h-16 w-16 object-contain mx-auto"
-                                        />
-                                    </td>
-                                    <td className="border border-gray-200 px-4 py-2">{equipment.name}</td>
-                                    <td className="border border-gray-200 px-4 py-2">{equipment.categoryname}</td>
-                                    <td className="border border-gray-200 px-4 py-2">${equipment.price}</td>
-                                    <td className="border border-gray-200 px-4 py-2">
-                                        <Link
-                                            to={`/equipment/${equipment._id}`}
-                                            className="bg-red-200 text-slate-900 px-4 py-2 rounded hover:bg-gray-500 transition"
-                                        >
-                                            View Details
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                {/* Equipment Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {equipments.map((equipment) => (
+                        <div
+                            key={equipment._id}
+                            className="border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+                        >
+                            <img
+                                src={equipment.image}
+                                alt={equipment.name}
+                                className="h-48 w-full object-cover"
+                            />
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold text-gray-800">{equipment.name}</h3>
+                                <p className="text-sm text-gray-600">Category: {equipment.categoryname}</p>
+                                <p className="text-lg font-bold text-gray-800 mt-2">${equipment.price}</p>
+                                <Link
+                                    to={`/equipment/${equipment._id}`}
+                                    className="inline-block mt-4 bg-red-200 text-slate-900 px-4 py-2 rounded hover:bg-gray-500 transition"
+                                >
+                                    View Details
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
             <Footer />
@@ -93,4 +81,5 @@ const AllSportsEquip = () => {
 };
 
 export default AllSportsEquip;
+
 
