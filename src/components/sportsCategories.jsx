@@ -1,4 +1,8 @@
 import React from "react";
+import football from '../../public/football.png'
+import basketball from '../../public/basketball.png'
+import tennis from '../../public/tennis.png'
+import hockey from '../../public/hocky.png'
 
 const sportsCategories = [
   {
@@ -9,30 +13,33 @@ const sportsCategories = [
   {
     id: 2,
     name: "Football",
-    image: "https://i.ibb.co/wgTDQj/halmet.png",
+    image: football,
   },
   {
     id: 3,
     name: "Basketball",
-    image: "https://i.ibb.co/cL6W4Bq/gloves.png",
+    image: basketball,
   },
   {
     id: 4,
     name: "Tennis",
-    image: "https://i.ibb.co/ZYW3VTp/basketball.png",
+    image: tennis,
   },
   {
     id: 5,
     name: "Hockey",
-    image: "https://i.ibb.co/qM3hZLv/goalkeeper.png",
+    image: hockey,
   },
 ];
 
 const SportsCategories = () => {
   return (
     <div className="w-11/12 mx-auto mt-10 mb-10">
-      <h2 className="text-center text-3xl font-semibold my-6 text-blue-600">Sports Categories</h2>
+      <h2 className="text-4xl font-extrabold text-center text-black mb-10">Sports Categories</h2>
 
+      <p className="text-center text-gray-600 text-lg mb-10 pr-10 pl-10">
+      Explore our diverse range of sports categories, featuring equipment for Cricket, Football, Basketball, Tennis, and Hockey. Whether you're a professional athlete or a sports enthusiast, find the perfect gear to match your passion and elevate your game.
+      </p>
       <div className="flex flex-wrap justify-center gap-6">
         {sportsCategories.map((category) => (
           <div

@@ -14,7 +14,7 @@ const EquipmentCart = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-10">
-      <h2 className="text-center text-3xl font-semibold my-4">Product Section</h2>
+      <h2 className="text-4xl font-extrabold text-center text-black mb-10">Product Section</h2>
       <p className="text-center text-gray-600 text-lg mb-10 pr-10 pl-10">
         Explore our wide range of high-quality sports equipment designed to enhance your performance and elevate your game. Find the perfect gear for every sport and every level.
       </p>
@@ -44,7 +44,7 @@ const EquipmentCart = () => {
               <p className="text-sm text-gray-500 mt-1">Price: ${equipment.price}</p>
               <Link
                 to={`/equipment/${equipment._id}`}
-                className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                className="mt-4 inline-block bg-slate-300 text-slate-900 px-4 py-2 rounded-md hover:bg-slate-700  hover:text-slate-100 transition"
               >
                 View Details
               </Link>
